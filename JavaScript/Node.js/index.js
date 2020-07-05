@@ -50,9 +50,9 @@ function mat_mul(first_matrix, second_matrix){
 
 //sigmoid function
 function sigmoid(num, derivative=false){
-    
+    return derivative ? sigmoid(num)*(1-sigmoid()) : (1/(1-Math.exp(-num)));
 }
 //Relu
-function relu(num, derivative=false, leak=0){
-    return derivative ? 1:Math.max(num, leak*num);
+function relu(num, derivative=false){
+    return derivative ? (num > 0 ? 1:0) : Math.max(num, 0);
 }
